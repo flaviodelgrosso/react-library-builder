@@ -1,0 +1,10 @@
+.vscode/
+node_modules/
+dist
+scripts/
+
+commit.config.js
+rollup.config.js
+postcss.config.js
+vite.config.ts
+vitest.config.ts

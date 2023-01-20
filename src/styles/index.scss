@@ -1,0 +1,102 @@
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+
+$primary-border: darken($primary, 5%);
+$secondary-border: darken($secondary, 5%);
+$success-border: darken($success, 5%);
+$info-border: darken($info, 5%);
+$warning-border: darken($warning, 5%);
+$danger-border: darken($danger, 5%);
+
+@mixin btn($color, $bg-color, $border-color) {
+  color: $color;
+  background-color: $bg-color;
+  border-color: $border-color;
+
+  &:hover {
+    background-color: darken($bg-color, 5%);
+    border-color: darken($border-color, 5%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+  }
+
+  &:disabled {
+    color: lightgray;
+    background-color: gray;
+    border-color: darken(gray, 5%);
+    cursor: not-allowed;
+  }
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.35rem;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
+  &-primary {
+    @include btn(whitesmoke, $primary, $primary-border);
+  }
+
+  &-secondary {
+    @include btn(whitesmoke, $secondary, $secondary-border);
+  }
+
+  &-success {
+    @include btn(whitesmoke, $success, $success-border);
+  }
+
+  &-warning {
+    @include btn(whitesmoke, $warning, $warning-border);
+  }
+
+  &-info {
+    @include btn(whitesmoke, $info, $info-border);
+  }
+
+  &-danger {
+    @include btn(whitesmoke, $danger, $danger-border);
+  }
+
+  &-outline {
+    &-primary {
+      @include btn($primary, transparent, $primary);
+    }
+
+    &-secondary {
+      @include btn($secondary, transparent, $secondary);
+    }
+
+    &-success {
+      @include btn($success, transparent, $success);
+    }
+
+    &-warning {
+      @include btn($warning, transparent, $warning);
+    }
+
+    &-info {
+      @include btn($info, transparent, $info);
+    }
+
+    &-danger {
+      @include btn($danger, transparent, $danger);
+    }
+  }
+}
